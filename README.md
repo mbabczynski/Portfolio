@@ -1,6 +1,6 @@
 # Portfolio
 
-My sample work products  as a QA tester and simple projects in Python.
+My sample work products  as a QA tester and simple learning projects in Python.
 
 Contact:
 phone - +48 792 880 744
