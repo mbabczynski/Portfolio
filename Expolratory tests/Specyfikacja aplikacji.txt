@@ -1,0 +1,17 @@
+O aplikacji PomodoroKanban
+
+ Aplikacja będzie połączeniem techniki Pomodoro oraz tablicy kanbanowej składającej się z kolumn TODO (do zrobienia), IN PROGRESS (w trakcie realizacji) oraz DONE (zrobione).
+Czas trwania zadań i przerw będzie zaczerpnięty z Pomodoro – domyślnie 25 min na zadanie, 5 minut na krótką przerwę oraz 60 minut na długą przerwę. Będzie jednak można modyfikować czas w ustawieniach. Maksymalny czas, który będzie można ustawić to 59 minut, a minimalny – 15 sekund.
+
+W aplikacji będzie można dodawać zadania, a później je edytować i usuwać. Będzie możliwość zmiany ich kolejności w kolumnie TODO.
+Zadania będzie można przesuwać w ramach TODO, jak i między kolumnami metodą drag&drop (przeciągnij i upuść).
+
+W kolumnie DONE ma być przycisk Clear all, który będzie czyścić wszystkie zadania w tej kolumnie.
+Po przesunięciu zadania z kolumny TODO na IN PROGRESS automatycznie wystartuje zegar.  Zegar będzie można też wystartować niezależnie od zadań w kolumnach.
+W kolumnie IN PROGRESS może być w danym momencie tylko jedno zadanie.
+
+W celu zmotywowania użytkownika do realizowania zadań bez ich przerywania  będzie wprowadzony pomidor. Będzie on rósł wraz z upływem czasu poświęconego na realizację zadania. Po upłynięciu czasu na zadanie pomidor będzie doliczany do puli zebranych pomidorów. Liczba zebranych w ten sposób pomidorów będzie cały czas widoczna w aplikacji. Jeśli jednak użytkownik będzie chciał przerwać zadanie, pojawi się komunikat o tym, czy na pewno tego chce. Kliknięcie ‘Tak’ zresetuje zegar i pomidor nie doliczy się do puli zebranych pomidorów. Natomiast kliknięcie ‘Nie’ nie spowoduje żadnych zmian – zegar będzie odliczać dalej czas a pomidor będzie rosnąć.
+
+Zakłada się, że użytkownik może pomyłkowo przesunąć zadanie do kolumny IN PROGRESS lub przypadkiem wystartować zegar. Dlatego też zostanie wprowadzona możliwość anulowania odliczania w ciągu 10% czasu, ale nie więcej niż 10 sekund od wystartowania zegara.
+
+Po upływie czasu określonego na zadanie lub przerwę będzie się pojawić powiadomienie. W ustawieniach będzie można wybrać typ powiadomienia lub w ogóle wyłączyć notyfikacje.
