@@ -1,6 +1,6 @@
 # Portfolio
 
-My sample work products  as a QA tester and simple learning projects in Python.
+My sample work products  as a QA tester and simple projects in Python.
 
 Contact:
 Michał Babczyński
