@@ -1,6 +1,7 @@
 from playwright.sync_api import Page, expect
 import re
 
+# Test checks searching in blog subpage.
 
 def test_blog_search(page: Page):
     page.goto("/blog")

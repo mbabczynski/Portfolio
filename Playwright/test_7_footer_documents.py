@@ -1,6 +1,7 @@
 from playwright.sync_api import Page, expect
 import re
 
+# Test checks opening and closing documents in footer (privacy policy, therms of use).
 
 def test_footer_rodo(page: Page):
     page.goto("/")

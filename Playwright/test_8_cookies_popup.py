@@ -1,6 +1,7 @@
 from playwright.sync_api import Page, expect
 import re
 
+#Test checks visibility of cookies pop-up, closing after clicking 'accept', and redirecting to privacy policy page after 'clicking read more...'
 
 def test_cookies_prompt(page: Page):
     page.goto("/")

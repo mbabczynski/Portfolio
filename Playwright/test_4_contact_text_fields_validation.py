@@ -1,5 +1,6 @@
 from playwright.sync_api import Page, expect
 
+# test checks for the appearance of notifications for the user when filling in the fields with valid data and also no data.
 
 def test_email_invalid(page: Page):
     page.goto("/kontakt")
