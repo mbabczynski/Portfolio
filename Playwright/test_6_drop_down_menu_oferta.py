@@ -1,5 +1,35 @@
 from playwright.sync_api import Page, expect
 
+# Test checks visibility of links when hovering above 'oferta' field, urls after clicking links, and style changes
+# when hovering above links in drop down 'oferta' menu.
+
+
+def locators(page: Page):
+    links_oferta = [page.get_by_role("link", name="Psychodietetyka"),
+                    page.get_by_role("link", name="Indywidualne wkładki ortopedyczne"),
+                    page.get_by_role("link", name="Terapia manualna"),
+                    page.get_by_role("link", name="Pijawki lekarskie"),
+                    page.get_by_role("link", name="Pinoterapia"),
+                    page.get_by_role("link", name="Psychoterapia"),
+                    page.get_by_role("link", name="Terapia wisceralna"),
+                    page.get_by_role("link", name="Akupunktura"),
+                    page.get_by_role("link", name="Refleksoterapia"),
+                    page.get_by_role("link", name="Masaż Kobido"),
+                    page.get_by_role("link", name="Misy tybetanskie"),
+                    page.get_by_role("link", name="Chiropraktyka"),
+                    page.get_by_role("link", name="Joga"),
+                    page.get_by_role("link", name="Masaż leczniczy"),
+                    page.get_by_role("link", name="Fizjoterapia stomatologiczna")]
+    return links_oferta
+
+
+def test_is_drop_down_menu_content_visible_when_hover(page: Page):
+    page.goto("/")
+    links_oferta = locators(page)
+    while page.locator("app-nav").get_by_role("link", name="Oferta").hover():
+        for link in links_oferta:
+            expect(link).to_be_visible()
+
 
 def test_is_drop_down_menu_content_change_color_when_hover(page: Page):
     page.goto("/")
@@ -14,42 +44,11 @@ def test_is_drop_down_menu_content_change_color_when_hover(page: Page):
         expect(row).to_have_css(name="background-color", value="rgb(133, 178, 75)")
 
 
-def test_is_drop_down_menu_content_visible_when_hover(page: Page):
-    page.goto("/")
-    while page.locator("app-nav").get_by_role("link", name="Oferta").hover():
-        expect(page.get_by_role("link", name="Psychodietetyka")).to_be_visible()
-        expect(page.get_by_role("link", name="Indywidualne wkładki ortopedyczne")).to_be_visible()
-        expect(page.get_by_role("link", name="Terapia manualna")).to_be_visible()
-        expect(page.get_by_role("link", name="Pijawki lekarskie")).to_be_visible()
-        expect(page.get_by_role("link", name="Pinoterapia")).to_be_visible()
-        expect(page.get_by_role("link", name="Psychoterapia")).to_be_visible()
-        expect(page.get_by_role("link", name="Terapia wisceralna")).to_be_visible()
-        expect(page.get_by_role("link", name="Akupunktura")).to_be_visible()
-        expect(page.get_by_role("link", name="Refleksoterapia")).to_be_visible()
-        expect(page.get_by_role("link", name="Masaż Kobido")).to_be_visible()
-        expect(page.get_by_role("link", name="Misy tybetanskie")).to_be_visible()
-        expect(page.get_by_role("link", name="Chiropraktyka")).to_be_visible()
-        expect(page.get_by_role("link", name="Joga")).to_be_visible()
-        expect(page.get_by_role("link", name="Masaż leczniczy")).to_be_visible()
-        expect(page.get_by_role("link", name="Fizjoterapia stomatologiczna")).to_be_visible()
-
 def test_is_drop_down_menu_content_not_visible_without_hover(page: Page):
     page.goto("/")
-    expect(page.get_by_role("link", name="Psychodietetyka")).not_to_be_visible()
-    expect(page.get_by_role("link", name="Indywidualne wkładki ortopedyczne")).not_to_be_visible()
-    expect(page.get_by_role("link", name="Terapia manualna")).not_to_be_visible()
-    expect(page.get_by_role("link", name="Pijawki lekarskie")).not_to_be_visible()
-    expect(page.get_by_role("link", name="Pinoterapia")).not_to_be_visible()
-    expect(page.get_by_role("link", name="Psychoterapia")).not_to_be_visible()
-    expect(page.get_by_role("link", name="Terapia wisceralna")).not_to_be_visible()
-    expect(page.get_by_role("link", name="Akupunktura")).not_to_be_visible()
-    expect(page.get_by_role("link", name="Refleksoterapia")).not_to_be_visible()
-    expect(page.get_by_role("link", name="Masaż Kobido")).not_to_be_visible()
-    expect(page.get_by_role("link", name="Misy tybetanskie")).not_to_be_visible()
-    expect(page.get_by_role("link", name="Chiropraktyka")).not_to_be_visible()
-    expect(page.get_by_role("link", name="Joga")).not_to_be_visible()
-    expect(page.get_by_role("link", name="Masaż leczniczy")).not_to_be_visible()
-    expect(page.get_by_role("link", name="Fizjoterapia stomatologiczna")).not_to_be_visible()
+    links_oferta = locators(page)
+    for link in links_oferta:
+        expect(link).not_to_be_visible()
 
 
 def test_clicking_drop_down_menu_content_psychodietetyka(page: Page):
