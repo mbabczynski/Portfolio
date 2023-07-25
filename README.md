@@ -1,6 +1,7 @@
 # Portfolio
 
 My sample work products  as a QA tester and simple projects in Python.
+In folder Playwright automated test suite, written in Python with pytest.
 
 Contact:
 Michał Babczyński
